@@ -294,8 +294,8 @@ public class OpenGlHelper
 
         /*try
         {
-            Processor aprocessor = (new SystemInfo()).getHardware().getProcessors();
-            cpu = String.format("%dx %s", new Object[] {Integer.valueOf(aprocessor.length), aprocessor}).replaceAll("\\s+", " ");
+            Processor[] aprocessor = (new SystemInfo()).getHardware().getProcessors();
+            cpu = String.format("%dx %s", new Object[] {Integer.valueOf(aprocessor.length), aprocessor[0]}).replaceAll("\\s+", " ");
         }
         catch (Throwable var3)
         {
