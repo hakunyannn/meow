@@ -131,8 +131,6 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.handshake.client.C00Handshake;
 import net.minecraft.network.login.client.C00PacketLoginStart;
 import net.minecraft.network.play.client.C16PacketClientStatus;
-import net.minecraft.profiler.IPlayerUsage;
-import net.minecraft.profiler.PlayerUsageSnooper;
 import net.minecraft.profiler.Profiler;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.integrated.IntegratedServer;
@@ -181,7 +179,7 @@ import org.lwjgl.opengl.OpenGLException;
 import org.lwjgl.opengl.PixelFormat;
 import org.lwjgl.util.glu.GLU;
 
-public class Minecraft implements IThreadListener, IPlayerUsage
+public class Minecraft implements IThreadListener
 {
     private static final Logger logger = LogManager.getLogger();
     private static final ResourceLocation locationMojangPng = new ResourceLocation("textures/gui/title/mojang.png");
@@ -218,7 +216,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
     private Timer timer = new Timer(20.0F);
 
     /** Instance of PlayerUsageSnooper. */
-    private PlayerUsageSnooper usageSnooper = new PlayerUsageSnooper("client", this, MinecraftServer.getCurrentTimeMillis());
+    //private PlayerUsageSnooper usageSnooper = new PlayerUsageSnooper("client", this, MinecraftServer.getCurrentTimeMillis());
     public WorldClient theWorld;
     public RenderGlobal renderGlobal;
     private RenderManager renderManager;
@@ -1172,12 +1170,12 @@ public class Minecraft implements IThreadListener, IPlayerUsage
             RenderChunk.renderChunksUpdated = 0;
             this.debugUpdateTime += 1000L;
             this.fpsCounter = 0;
-            this.usageSnooper.addMemoryStatsToSnooper();
+            /*this.usageSnooper.addMemoryStatsToSnooper();
 
             if (!this.usageSnooper.isSnooperRunning())
             {
                 this.usageSnooper.startSnooper();
-            }
+            }*/
         }
 
         if (this.isFramerateLimitBelowMax())
@@ -2769,7 +2767,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         });
     }
 
-    public void addServerStatsToSnooper(PlayerUsageSnooper playerSnooper)
+    /*public void addServerStatsToSnooper(PlayerUsageSnooper playerSnooper)
     {
         playerSnooper.addClientStat("fps", Integer.valueOf(debugFPS));
         playerSnooper.addClientStat("vsync_enabled", Boolean.valueOf(this.gameSettings.enableVsync));
@@ -2791,7 +2789,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         {
             playerSnooper.addClientStat("snooper_partner", this.theIntegratedServer.getPlayerUsageSnooper().getUniqueID());
         }
-    }
+    }*/
 
     /**
      * Return the current action's name
@@ -2801,7 +2799,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         return this.theIntegratedServer != null ? (this.theIntegratedServer.getPublic() ? "hosting_lan" : "singleplayer") : (this.currentServerData != null ? (this.currentServerData.isOnLAN() ? "playing_lan" : "multiplayer") : "out_of_game");
     }
 
-    public void addServerTypeToSnooper(PlayerUsageSnooper playerSnooper)
+    /*public void addServerTypeToSnooper(PlayerUsageSnooper playerSnooper)
     {
         playerSnooper.addStatToSnooper("opengl_version", GL11.glGetString(GL11.GL_VERSION));
         playerSnooper.addStatToSnooper("opengl_vendor", GL11.glGetString(GL11.GL_VENDOR));
@@ -2912,7 +2910,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         playerSnooper.addStatToSnooper("gl_caps[gl_max_texture_image_units]", Integer.valueOf(GL11.glGetInteger(35071)));
         GL11.glGetError();
         playerSnooper.addStatToSnooper("gl_max_texture_size", Integer.valueOf(getGLMaximumTextureSize()));
-    }
+    }*/
 
     /**
      * Used in the usage snooper.
@@ -2936,10 +2934,10 @@ public class Minecraft implements IThreadListener, IPlayerUsage
     /**
      * Returns whether snooping is enabled or not.
      */
-    public boolean isSnooperEnabled()
+    /*public boolean isSnooperEnabled()
     {
         return this.gameSettings.snooperEnabled;
-    }
+    }*/
 
     /**
      * Set the current ServerData instance.
@@ -2991,10 +2989,10 @@ public class Minecraft implements IThreadListener, IPlayerUsage
     /**
      * Returns the PlayerUsageSnooper instance.
      */
-    public PlayerUsageSnooper getPlayerUsageSnooper()
+    /*public PlayerUsageSnooper getPlayerUsageSnooper()
     {
         return this.usageSnooper;
-    }
+    }*/
 
     /**
      * Gets the system time in milliseconds.

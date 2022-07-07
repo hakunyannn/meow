@@ -13,7 +13,6 @@ import net.minecraft.client.multiplayer.ThreadLanServerPing;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.crash.CrashReport;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.profiler.PlayerUsageSnooper;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.CryptManager;
 import net.minecraft.util.HttpUtil;
@@ -321,19 +320,19 @@ public class IntegratedServer extends MinecraftServer
         }
     }
 
-    public void addServerStatsToSnooper(PlayerUsageSnooper playerSnooper)
+    /*public void addServerStatsToSnooper(PlayerUsageSnooper playerSnooper)
     {
         super.addServerStatsToSnooper(playerSnooper);
         playerSnooper.addClientStat("snooper_partner", this.mc.getPlayerUsageSnooper().getUniqueID());
-    }
+    }*/
 
     /**
      * Returns whether snooping is enabled or not.
      */
-    public boolean isSnooperEnabled()
+    /*public boolean isSnooperEnabled()
     {
         return Minecraft.getMinecraft().isSnooperEnabled();
-    }
+    }*/
 
     /**
      * On dedicated does nothing. On integrated, sets commandsAllowedForAll, gameType and allows external connections.

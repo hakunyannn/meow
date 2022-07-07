@@ -45,8 +45,6 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.NetworkSystem;
 import net.minecraft.network.ServerStatusResponse;
 import net.minecraft.network.play.server.S03PacketTimeUpdate;
-import net.minecraft.profiler.IPlayerUsage;
-import net.minecraft.profiler.PlayerUsageSnooper;
 import net.minecraft.profiler.Profiler;
 import net.minecraft.server.management.PlayerProfileCache;
 import net.minecraft.server.management.ServerConfigurationManager;
@@ -77,7 +75,7 @@ import org.apache.commons.lang3.Validate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public abstract class MinecraftServer implements Runnable, ICommandSender, IThreadListener, IPlayerUsage
+public abstract class MinecraftServer implements Runnable, ICommandSender, IThreadListener
 {
     private static final Logger logger = LogManager.getLogger();
     public static final File USER_CACHE_FILE = new File("usercache.json");
@@ -87,7 +85,7 @@ public abstract class MinecraftServer implements Runnable, ICommandSender, IThre
     private final ISaveFormat anvilConverterForAnvilFile;
 
     /** The PlayerUsageSnooper instance. */
-    private final PlayerUsageSnooper usageSnooper = new PlayerUsageSnooper("server", this, getCurrentTimeMillis());
+    //private final PlayerUsageSnooper usageSnooper = new PlayerUsageSnooper("server", this, getCurrentTimeMillis());
     private final File anvilFile;
     private final List<ITickable> playersOnline = Lists.<ITickable>newArrayList();
     protected final ICommandManager commandManager;
@@ -499,10 +497,10 @@ public abstract class MinecraftServer implements Runnable, ICommandSender, IThre
                 }
             }
 
-            if (this.usageSnooper.isSnooperRunning())
+            /*if (this.usageSnooper.isSnooperRunning())
             {
                 this.usageSnooper.stopSnooper();
-            }
+            }*/
         }
     }
 
@@ -717,7 +715,7 @@ public abstract class MinecraftServer implements Runnable, ICommandSender, IThre
         this.theProfiler.startSection("tallying");
         this.tickTimeArray[this.tickCounter % 100] = System.nanoTime() - i;
         this.theProfiler.endSection();
-        this.theProfiler.startSection("snooper");
+        /*this.theProfiler.startSection("snooper");
 
         if (!this.usageSnooper.isSnooperRunning() && this.tickCounter > 100)
         {
@@ -729,7 +727,7 @@ public abstract class MinecraftServer implements Runnable, ICommandSender, IThre
             this.usageSnooper.addMemoryStatsToSnooper();
         }
 
-        this.theProfiler.endSection();
+        this.theProfiler.endSection();*/
         this.theProfiler.endSection();
     }
 
@@ -1155,7 +1153,7 @@ public abstract class MinecraftServer implements Runnable, ICommandSender, IThre
         this.resourcePackHash = hash;
     }
 
-    public void addServerStatsToSnooper(PlayerUsageSnooper playerSnooper)
+    /*public void addServerStatsToSnooper(PlayerUsageSnooper playerSnooper)
     {
         playerSnooper.addClientStat("whitelist_enabled", Boolean.valueOf(false));
         playerSnooper.addClientStat("whitelist_count", Integer.valueOf(0));
@@ -1203,15 +1201,15 @@ public abstract class MinecraftServer implements Runnable, ICommandSender, IThre
         playerSnooper.addStatToSnooper("server_brand", this.getServerModName());
         playerSnooper.addStatToSnooper("gui_supported", GraphicsEnvironment.isHeadless() ? "headless" : "supported");
         playerSnooper.addStatToSnooper("dedicated", Boolean.valueOf(this.isDedicatedServer()));
-    }
+    }*/
 
     /**
      * Returns whether snooping is enabled or not.
      */
-    public boolean isSnooperEnabled()
+    /*public boolean isSnooperEnabled()
     {
         return true;
-    }
+    }*/
 
     public abstract boolean isDedicatedServer();
 
@@ -1352,10 +1350,10 @@ public abstract class MinecraftServer implements Runnable, ICommandSender, IThre
         this.startProfiling = true;
     }
 
-    public PlayerUsageSnooper getPlayerUsageSnooper()
+    /*public PlayerUsageSnooper getPlayerUsageSnooper()
     {
         return this.usageSnooper;
-    }
+    }*/
 
     /**
      * Get the position in the world. <b>{@code null} is not allowed!</b> If you are not an entity in the world, return

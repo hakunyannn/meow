@@ -19,7 +19,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.4</version>
+                <version>3.3.0</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -197,16 +197,16 @@
             <version>2013.04.17-unofficial</version>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>com.mojang</groupId>-->
-<!--            <artifactId>realmsclient</artifactId>-->
-<!--            <version>1.7.59</version>-->
-<!--        </dependency>-->
+        <!--<dependency>
+            <groupId>com.mojang</groupId>
+            <artifactId>realmsclient</artifactId>
+            <version>1.7.59</version>
+        </dependency>-->
 
         <dependency>
             <groupId>com.mojang</groupId>
             <artifactId>authlib</artifactId>
-            <version>1.5.25</version>
+            <version>1.5.26</version>
         </dependency>
 
     </dependencies>
