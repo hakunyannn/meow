@@ -111,6 +111,12 @@
             <groupId>oshi-project</groupId>
             <artifactId>oshi-core</artifactId>
             <version>1.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>net.java.dev.jna</groupId>
+                    <artifactId>platform</artifactId>
+                </exclusion>
+            </exclusions> 
         </dependency>
 
         <dependency>
