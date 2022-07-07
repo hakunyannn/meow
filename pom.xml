@@ -156,12 +156,6 @@
         </dependency>
 
         <dependency>
-            <groupId>tv.twitch</groupId>
-            <artifactId>twitch</artifactId>
-            <version>6.5</version>
-        </dependency>
-
-        <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>17.0</version>
