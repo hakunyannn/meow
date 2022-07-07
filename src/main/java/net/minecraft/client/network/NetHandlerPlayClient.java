@@ -1517,17 +1517,14 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
         if (packetIn.eventType == S42PacketCombatEvent.Event.END_COMBAT)
         {
             long i = (long)(1000 * packetIn.field_179772_d / 20);
-            MetadataCombat metadatacombat = new MetadataCombat(this.gameController.thePlayer, entitylivingbase);
         }
         else if (packetIn.eventType == S42PacketCombatEvent.Event.ENTITY_DIED)
         {
             Entity entity1 = this.clientWorldController.getEntityByID(packetIn.field_179774_b);
 
-            if (entity1 instanceof EntityPlayer)
+            /*if (entity1 instanceof EntityPlayer)
             {
-                MetadataPlayerDeath metadataplayerdeath = new MetadataPlayerDeath((EntityPlayer)entity1, entitylivingbase);
-                metadataplayerdeath.func_152807_a(packetIn.deathMessage);
-            }
+            }*/
         }
     }
 
