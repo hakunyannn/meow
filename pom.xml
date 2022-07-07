@@ -46,6 +46,10 @@
             <id>minecraft</id>
             <url>https://libraries.minecraft.net/</url>
         </repository>
+        <repository>
+            <id>velocitypowered</id>
+            <url>https://nexus.velocitypowered.com/repository/maven-public/</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -55,11 +59,11 @@
             <version>4.0.56.Final</version>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>com.mojang</groupId>
             <artifactId>patchy</artifactId>
-            <version>1.7.7</version>
-        </dependency>
+            <version>2.2.10</version>
+        </dependency>-->
 
         <dependency>
             <groupId>net.sf.jopt-simple</groupId>
@@ -68,15 +72,15 @@
         </dependency>
 
         <dependency>
-            <groupId>org.lwjgl</groupId>
+            <groupId>org.lwjgl.lwjgl</groupId>
             <artifactId>lwjgl</artifactId>
-            <version>2.9.4-nightly</version>
+            <version>2.9.4-nightly-20150209</version>
         </dependency>
 
         <dependency>
-            <groupId>org.lwjgl</groupId>
-            <artifactId>util</artifactId>
-            <version>2.9.4-nightly</version>
+            <groupId>org.lwjgl.lwjgl</groupId>
+            <artifactId>lwjgl_util</artifactId>
+            <version>2.9.4-nightly-20150209</version>
         </dependency>
 
         <dependency>
@@ -103,11 +107,11 @@
             <version>4.4.15</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.github.oshi</groupId>
+        <!--<dependency>
+            <groupId>oshi</groupId>
             <artifactId>oshi-core</artifactId>
-            <version>6.2.1</version>
-        </dependency>
+            <version>1.1</version>
+        </dependency>-->
 
         <dependency>
             <groupId>net.java.dev.jna</groupId>
@@ -117,8 +121,8 @@
 
         <dependency>
             <groupId>net.java.dev.jna</groupId>
-            <artifactId>platform</artifactId>
-            <version>3.4.0</version>
+            <artifactId>jna-platform</artifactId>
+            <version>5.12.1</version>
         </dependency>
 
         <dependency>
@@ -188,33 +192,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.paulscode.sound</groupId>
-            <artifactId>libraryjavasound</artifactId>
-            <version>20101123</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.paulscode.sound</groupId>
-            <artifactId>codecwav</artifactId>
-            <version>20101023</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.paulscode.sound</groupId>
-            <artifactId>soundsystem</artifactId>
-            <version>20120107</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.paulscode.sound</groupId>
-            <artifactId>codecjorbis</artifactId>
-            <version>20101023</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.paulscode.sound</groupId>
-            <artifactId>librarylwjglopenal</artifactId>
-            <version>20100824</version>
+            <artifactId>paulscode-soundsystem</artifactId>
+            <groupId>com.github.nullnoname</groupId>
+            <version>2013.04.17-unofficial</version>
         </dependency>
 
 <!--        <dependency>-->
