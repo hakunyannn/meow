@@ -41,6 +41,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
+import uwu.narumi.niko.Niko;
+import uwu.narumi.niko.command.CommandManager;
 
 public abstract class GuiScreen extends Gui implements GuiYesNoCallback
 {
@@ -474,6 +476,12 @@ public abstract class GuiScreen extends Gui implements GuiYesNoCallback
         {
             this.mc.ingameGUI.getChatGUI().addToSentMessages(msg);
         }
+
+        // Niko start - command handling
+        if (msg.startsWith(CommandManager.getPrefix()) && Niko.INSTANCE.getCommandManager().handleCommand(msg)) {
+            return;
+        }
+        // Niko end
 
         this.mc.thePlayer.sendChatMessage(msg);
     }

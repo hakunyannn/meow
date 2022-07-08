@@ -178,6 +178,8 @@ import org.lwjgl.opengl.GLContext;
 import org.lwjgl.opengl.OpenGLException;
 import org.lwjgl.opengl.PixelFormat;
 import org.lwjgl.util.glu.GLU;
+import uwu.narumi.niko.Niko;
+import uwu.narumi.niko.hook.GuiInGameHook;
 
 public class Minecraft implements IThreadListener
 {
@@ -226,7 +228,7 @@ public class Minecraft implements IThreadListener
     private Entity renderViewEntity;
     public Entity pointedEntity;
     public EffectRenderer effectRenderer;
-    private final Session session;
+    public Session session; // meow - public and de-final
     private boolean isGamePaused;
 
     /** The font renderer used for displaying and measuring text */
@@ -275,7 +277,7 @@ public class Minecraft implements IThreadListener
      * This is set to fpsCounter every debug screen update, and is shown on the debug screen. It's also sent as part of
      * the usage snooping.
      */
-    private static int debugFPS;
+    public static int debugFPS; // Niko - public
 
     /**
      * When you place a block, it's set to 6, decremented once per tick, when it's 0, you can place another block.
@@ -556,7 +558,8 @@ public class Minecraft implements IThreadListener
         GlStateManager.viewport(0, 0, this.displayWidth, this.displayHeight);
         this.effectRenderer = new EffectRenderer(this.theWorld, this.renderEngine);
         this.checkGLError("Post startup");
-        this.ingameGUI = new GuiIngame(this);
+        //this.ingameGUI = new GuiIngame(this);
+        this.ingameGUI = new GuiInGameHook(this); // Niko - GuiInGame hook
 
         if (this.serverName != null)
         {

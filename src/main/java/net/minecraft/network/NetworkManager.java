@@ -48,6 +48,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.Marker;
 import org.apache.logging.log4j.MarkerManager;
+import uwu.narumi.niko.helper.TimeHelper;
+import uwu.narumi.niko.holder.Holder;
 
 public class NetworkManager extends SimpleChannelInboundHandler<Packet>
 {
@@ -152,6 +154,7 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
         {
             try
             {
+                Holder.setLastPacketMS(TimeHelper.getCurrentTime()); // Niko
                 p_channelRead0_2_.processPacket(this.packetListener);
             }
             catch (ThreadQuickExitException var4)
@@ -328,6 +331,12 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
             this.channel.close().awaitUninterruptibly();
             this.terminationReason = message;
         }
+
+        // Niko start - clear holder on channel close
+        Holder.setTPS(-1);
+        Holder.setLastPacketMS(-1);
+        Holder.getTpsTimes().clear();
+        // Niko end
     }
 
     /**
