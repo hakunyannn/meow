@@ -16,10 +16,10 @@ public class DiscordRichPresenceManager implements ReadyCallback {
 
   public DiscordRichPresenceManager() {
     richPresence = new DiscordRichPresence
-        .Builder("https://github.com/narumii/Niko")
-        .setBigImage("animated-niko", "Niko created by なるみ#5777")
-        .setSmallImage("github", "https://github.com/narumii/Niko")
-        .setDetails("Loading Niko...")
+        .Builder("https://github.com/hakunyannn/meow")
+        .setBigImage("hakunya", "meow")
+        .setSmallImage("github", "https://github.com/hakunyannn/meow")
+        .setDetails("Loading meow...")
         .setStartTimestamps(System.currentTimeMillis())
         .build();
 
@@ -39,14 +39,14 @@ public class DiscordRichPresenceManager implements ReadyCallback {
             System.out.printf("Connected to %s#%s (%s)%n", user.username, user.discriminator,
                 user.userId)).build();
 
-    DiscordRPC.discordInitialize("811623009521238067", handlers, true);
+    DiscordRPC.discordInitialize("994993917680418856", handlers, true);
   }
 
   public void startTask() {
     Executors.newSingleThreadScheduledExecutor()
         .scheduleWithFixedDelay(() -> {
           richPresence.details =
-              mc.thePlayer == null ? "Fuck germans" : "Nick: " + mc.session.getUsername();
+              mc.thePlayer == null ? "nya" : "Nick: " + mc.session.getUsername();
           richPresence.state = mc.getCurrentServerData() == null ? "Offline"
               : "Server: " + mc.getCurrentServerData().serverIP;
           DiscordRPC.discordUpdatePresence(richPresence);

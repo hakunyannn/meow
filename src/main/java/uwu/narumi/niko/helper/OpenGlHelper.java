@@ -11,6 +11,7 @@ import org.lwjgl.opengl.Display;
 
 public final class OpenGlHelper {
 
+  /*
   public static void setWindowIcon(String px32, String px64) throws IOException {
     Display.setIcon(new ByteBuffer[]{
         loadIcon(new URL(px32)),
@@ -28,6 +29,7 @@ public final class OpenGlHelper {
       return buffer;
     }
   }
+  */
 
   public static int rainbowColor(int speed, int offset) {
     float hue = (System.currentTimeMillis() + offset) % speed;

@@ -21,6 +21,7 @@ public final class NetHelper {
     mc.thePlayer.sendQueue.getNetworkManager().sendPacket(packet);
   }
 
+  /*
   public static void createSession(String username, String password) {
     if (password != null) {
       YggdrasilAuthenticationService service = new YggdrasilAuthenticationService(Proxy.NO_PROXY,
@@ -40,4 +41,5 @@ public final class NetHelper {
       Minecraft.getMinecraft().session = new Session(username, "", "", "mojang");
     }
   }
+  */
 }

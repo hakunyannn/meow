@@ -50,13 +50,12 @@ public enum Niko {
         new OnePacketExploit()
     );
 
-    //If you want to use niko from launcher please remove this
-    NetHelper.createSession("FuckYooniks", null);
+    // NetHelper.createSession("FuckYooniks", null);
     Runtime.getRuntime().addShutdownHook(new Thread(this::shutDown));
   }
 
   public void setDisplay() throws IOException {
-    Display.setTitle("NikoClient | http://github.com/narumii/niko");
+    Display.setTitle("meow");
     OpenGlHelper
         .setWindowIcon("https://i.imgur.com/ONORz2g.png", "https://i.imgur.com/xAIIIeb.png");
   }

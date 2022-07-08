@@ -19,16 +19,6 @@
       }
     },
     {
-      "name": "org.l33tlabs.twl:pngdecoder:1.0",
-      "downloads": {
-        "artifact": {
-          "url": "https://repo.maven.apache.org/maven2/org/l33tlabs/twl/pngdecoder/1.0/pngdecoder-1.0.jar",
-          "sha1": "6422688e344db244da42244b21998284bf098948",
-          "size": 11637
-        }
-      }
-    },
-    {
       "name": "oshi-project:oshi-core:1.1",
       "downloads": {
         "artifact": {
