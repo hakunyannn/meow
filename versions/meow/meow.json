@@ -7,6 +7,15 @@
   "minecraftArguments": "--username ${auth_player_name} --version ${version_name} --gameDir ${game_directory} --assetsDir ${assets_root} --assetIndex ${assets_index_name} --uuid ${auth_uuid} --accessToken ${auth_access_token} --userProperties ${user_properties} --userType ${user_type}",
   "mainClass": "net.minecraft.client.main.Main",
   "minimumLauncherVersion": 14,
+  "assets": "1.8",
+  "assetIndex": {
+    "totalSize": 114885064,
+    "id": "1.8",
+    "known": true,
+    "url": "https://launchermeta.mojang.com/v1/packages/f6ad102bcaa53b1a58358f16e376d548d44933ec/1.8.json",
+    "sha1": "f6ad102bcaa53b1a58358f16e376d548d44933ec",
+    "size": 78494
+  },
   "libraries": [
     {
       "name": "oshi-project:oshi-core:1.1",
@@ -109,12 +118,12 @@
       }
     },
     {
-      "name": "io.netty:netty-all:4.0.56.Final",
+      "name": "io.netty:netty-all:4.0.36.Final",
       "downloads": {
         "artifact": {
-          "url": "https://repo1.maven.org/maven2/io/netty/netty-all/4.0.56.Final/netty-all-4.0.56.Final.jar",
+          "url": "https://repo1.maven.org/maven2/io/netty/netty-all/4.0.36.Final/netty-all-4.0.36.Final.jar",
           "sha1": "0294104aaf1781d6a56a07d561e792c5d0c95f45",
-          "size": 2291648
+          "size": 2195921
         }
       }
     },
@@ -468,17 +477,4 @@
     }
   ],
   "downloads": {},
-  "assetIndex": {
-    "totalSize": 114885064,
-    "id": "1.8",
-    "known": true,
-    "url": "https://launchermeta.mojang.com/v1/packages/f6ad102bcaa53b1a58358f16e376d548d44933ec/1.8.json",
-    "sha1": "f6ad102bcaa53b1a58358f16e376d548d44933ec",
-    "size": 78494
-  },
-  "assets": "1.8",
-  "javaVersion": {
-    "component": "jre-legacy",
-    "majorVersion": 8
-  }
 }
