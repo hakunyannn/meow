@@ -54,11 +54,13 @@ public enum Niko {
     Runtime.getRuntime().addShutdownHook(new Thread(this::shutDown));
   }
 
+  /*
   public void setDisplay() throws IOException {
     Display.setTitle("meow");
     OpenGlHelper
         .setWindowIcon("https://i.imgur.com/ONORz2g.png", "https://i.imgur.com/xAIIIeb.png");
   }
+  */
 
   public void shutDown() {
     DiscordRPC.discordShutdown();

@@ -228,7 +228,7 @@ public class Minecraft implements IThreadListener
     private Entity renderViewEntity;
     public Entity pointedEntity;
     public EffectRenderer effectRenderer;
-    public Session session; // meow - public and de-final
+    public final Session session; // meow - public
     private boolean isGamePaused;
 
     /** The font renderer used for displaying and measuring text */
