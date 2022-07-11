@@ -947,25 +947,38 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
         }
     }
 
+    // meow start
+    private static long lastReceiveTime;
+    private static long currentReceiveTime = System.currentTimeMillis();
+    private static double tps;
+    // meow end
+
     public void handleTimeUpdate(S03PacketTimeUpdate packetIn)
     {
         PacketThreadUtil.checkThreadAndEnqueue(packetIn, this, this.gameController);
         this.gameController.theWorld.setTotalWorldTime(packetIn.getTotalWorldTime());
         this.gameController.theWorld.setWorldTime(packetIn.getWorldTime());
 
-        // Niko start - tps getter
-        /*
-        from: VenixPLL(dickmeister)
-         */
-        Holder.getTpsTimes().add(Math.max(1000, Holder.getTimeHelper().getTime()));
+        // meow start - tps getter
+        if (lastReceiveTime != -1L) {
+            long timeBetween = currentReceiveTime - lastReceiveTime;
+            double neededTps = (double) timeBetween / 50.0D;
+            double multi = neededTps / 20.0D;
+            tps = 20.0D / multi;
+            if (tps < 0.0D) {
+                tps = 0.0D;
+            }
 
-        if (Holder.getTpsTimes().size() > 5)
-            Holder.getTpsTimes().remove(0);
+            if (tps > 20.0D) {
+                tps = 20.0D;
+            }
+        }
 
-        long roundedTps = Holder.getTpsTimes().stream().mapToLong(time -> time).sum() / Holder.getTpsTimes().size();
-        Holder.setTPS((20.0 / roundedTps) * 1000.0);
+        lastReceiveTime = currentReceiveTime;
+
+        Holder.setTPS(tps);
         Holder.getTimeHelper().reset();
-        // Niko end
+        // meow end
     }
 
     public void handleSpawnPosition(S05PacketSpawnPosition packetIn)
