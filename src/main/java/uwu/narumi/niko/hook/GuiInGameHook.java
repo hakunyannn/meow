@@ -21,9 +21,11 @@ public class GuiInGameHook extends GuiIngame {
   public void renderGameOverlay(float partialTicks) {
     super.renderGameOverlay(partialTicks);
 
+    /*
     GL11.glScaled(2.0, 2.0, 2.0);
-    //mc.fontRendererObj.drawStringWithShadow("§7meow", 1, 1, 1);
+    mc.fontRendererObj.drawStringWithShadow("§7meow", 1, 1, 1);
     GL11.glScaled(0.5, 0.5, 0.5);
+    */
 
     if (!mc.isSingleplayer() && !mc.gameSettings.showDebugInfo) {
       //int x = (int) mc.thePlayer.posX, y = (int) mc.thePlayer.posY, z = (int) mc.thePlayer.posZ;
@@ -34,7 +36,9 @@ public class GuiInGameHook extends GuiIngame {
         Holder.setTPS(Holder.getTPS() - 0.01);
       }
 
+      GL11.glScaled(2.0, 2.0, 2.0);
       mc.fontRendererObj.drawStringWithShadow("§7meow", 1, 1, 1);
+      GL11.glScaled(0.5, 0.5, 0.5);
 
       mc.fontRendererObj.drawStringWithShadow(ChatHelper.fix(
           String.format("&fCPU Usage: %.2f",

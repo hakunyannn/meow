@@ -208,6 +208,7 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.storage.MapData;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import uwu.narumi.niko.holder.Holder;
 
 public class NetHandlerPlayClient implements INetHandlerPlayClient
 {
@@ -951,6 +952,20 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
         PacketThreadUtil.checkThreadAndEnqueue(packetIn, this, this.gameController);
         this.gameController.theWorld.setTotalWorldTime(packetIn.getTotalWorldTime());
         this.gameController.theWorld.setWorldTime(packetIn.getWorldTime());
+
+        // Niko start - tps getter
+        /*
+        from: VenixPLL(dickmeister)
+         */
+        Holder.getTpsTimes().add(Math.max(1000, Holder.getTimeHelper().getTime()));
+
+        if (Holder.getTpsTimes().size() > 5)
+            Holder.getTpsTimes().remove(0);
+
+        long roundedTps = Holder.getTpsTimes().stream().mapToLong(time -> time).sum() / Holder.getTpsTimes().size();
+        Holder.setTPS((20.0 / roundedTps) * 1000.0);
+        Holder.getTimeHelper().reset();
+        // Niko end
     }
 
     public void handleSpawnPosition(S05PacketSpawnPosition packetIn)
