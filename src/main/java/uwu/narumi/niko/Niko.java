@@ -18,7 +18,7 @@ import uwu.narumi.niko.exploit.impl.other.ChunkLoadExploit;
 import uwu.narumi.niko.exploit.impl.other.FaweExploit;
 import uwu.narumi.niko.exploit.impl.other.SpamExploit;
 import uwu.narumi.niko.helper.NetHelper;
-import uwu.narumi.niko.helper.OpenGlHelper;
+//import uwu.narumi.niko.helper.OpenGlHelper;
 import uwu.narumi.niko.rpc.DiscordRichPresenceManager;
 
 public enum Niko {

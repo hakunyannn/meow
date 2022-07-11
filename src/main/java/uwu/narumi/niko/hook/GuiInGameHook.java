@@ -4,7 +4,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiIngame;
 import org.lwjgl.opengl.GL11;
 import uwu.narumi.niko.helper.ChatHelper;
-import uwu.narumi.niko.helper.OpenGlHelper;
+//import uwu.narumi.niko.helper.OpenGlHelper;
 import uwu.narumi.niko.helper.SystemHelper;
 import uwu.narumi.niko.helper.TimeHelper;
 import uwu.narumi.niko.holder.Holder;
@@ -22,11 +22,11 @@ public class GuiInGameHook extends GuiIngame {
     super.renderGameOverlay(partialTicks);
 
     GL11.glScaled(2.0, 2.0, 2.0);
-    mc.fontRendererObj.drawStringWithShadow("N§7iko", 1, 1, OpenGlHelper.rainbowColor(3000, 1));
+    mc.fontRendererObj.drawStringWithShadow("§7meow", 1, 1, 1);
     GL11.glScaled(0.5, 0.5, 0.5);
 
-    if (!mc.isSingleplayer()) {
-      int x = (int) mc.thePlayer.posX, y = (int) mc.thePlayer.posY, z = (int) mc.thePlayer.posZ;
+    if (!mc.isSingleplayer() && !mc.gameSettings.showDebugInfo) {
+      //int x = (int) mc.thePlayer.posX, y = (int) mc.thePlayer.posY, z = (int) mc.thePlayer.posZ;
       long usedMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
       long lastPacketMS = TimeHelper.getCurrentTime() - Holder.getLastPacketMS();
       if (lastPacketMS > 1000 && Holder.getTPS() > 0.00) //idk xd, imagine doesn't know how to gix -0.00
@@ -34,35 +34,36 @@ public class GuiInGameHook extends GuiIngame {
         Holder.setTPS(Holder.getTPS() - 0.01);
       }
 
+      mc.fontRendererObj.drawStringWithShadow(ChatHelper.fix(
+          String.format("&fCPU Usage: %.2f",
+              SystemHelper.getOsBean().getProcessCpuLoad() * 1000 / 10)
+              + "&6%"), 5, 20, 0);
+      mc.fontRendererObj.drawStringWithShadow(ChatHelper.fix(String
+              .format("&fRAM Usage: %s/%s", SystemHelper.humanReadableByteCount(usedMemory, false),
+                  SystemHelper.humanReadableByteCount(Runtime.getRuntime().totalMemory(), false))), 5,
+          30, 0);
       mc.fontRendererObj
-          .drawStringWithShadow(ChatHelper.fix("&fSession: &d" + mc.session.getUsername()), 5, 20,
+          .drawStringWithShadow(ChatHelper.fix("&fSession: " + mc.session.getUsername()), 5, 40,
               0);
       mc.fontRendererObj
-          .drawStringWithShadow(ChatHelper.fix("&fServer: &d" + mc.getCurrentServerData().serverIP),
-              5, 30, 0);
+          .drawStringWithShadow(ChatHelper.fix("&fServer: " + mc.getCurrentServerData().serverIP),
+              5, 50, 0);
 
       if (mc.thePlayer.getClientBrand() != null) {
         String brand = mc.thePlayer.getClientBrand().contains("<- ") ?
             mc.thePlayer.getClientBrand().split(" ")[0] + " -> " + mc.thePlayer.getClientBrand()
                 .split("<- ")[1] : mc.thePlayer.getClientBrand().split(" ")[0];
         mc.fontRendererObj.drawStringWithShadow(
-            ChatHelper.fix("&fServer brand: &d" + brand), 5, 40, 0);
+            ChatHelper.fix("&fServer brand: " + brand), 5, 60, 0);
       }
 
+      /*
       mc.fontRendererObj
           .drawStringWithShadow(ChatHelper.fix("&fFPS: &d" + Minecraft.debugFPS), 5, 60, 0);
       mc.fontRendererObj
           .drawStringWithShadow(ChatHelper.fix(String.format("&fX, Y, Z: &d%s, %s, %s", x, y, z)),
               5, 70, 0);
-
-      mc.fontRendererObj.drawStringWithShadow(ChatHelper.fix(
-          String.format("&fCPU Usage: &d%.2f",
-              SystemHelper.getOsBean().getProcessCpuLoad() * 1000 / 10)
-              + "&d%"), 5, 90, 0);
-      mc.fontRendererObj.drawStringWithShadow(ChatHelper.fix(String
-              .format("&fRAM Usage: &d%s/%s", SystemHelper.humanReadableByteCount(usedMemory, false),
-                  SystemHelper.humanReadableByteCount(Runtime.getRuntime().totalMemory(), false))), 5,
-          100, 0);
+      */
 
       if (Holder.getTPS() != -1) {
         String tps = String.format((Holder.getTPS() > 15
@@ -71,7 +72,7 @@ public class GuiInGameHook extends GuiIngame {
             ? "&6%.2f" : "&c%.2f"))), Holder.getTPS());
 
         mc.fontRendererObj
-            .drawStringWithShadow(ChatHelper.fix(String.format("&fTPS: &d%s", tps)), 5, 120, 0);
+            .drawStringWithShadow(ChatHelper.fix(String.format("&fTPS: &d%s", tps)), 5, 70, 0);
       }
 
       if (Holder.getLastPacketMS() != -1) {
@@ -83,7 +84,7 @@ public class GuiInGameHook extends GuiIngame {
         mc.fontRendererObj
             .drawStringWithShadow(ChatHelper.fix(
                 lastPacketMS > 30500 ? "&fLast packet: &dBroken pipe"
-                    : String.format("&fLast packet: &d%s&7ms &fago", packetMs)), 5, 130, 0);
+                    : String.format("&fLast packet: &d%s&7ms &fago", packetMs)), 5, 80, 0);
 
       }
     }
