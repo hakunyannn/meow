@@ -22,7 +22,7 @@ public class GuiInGameHook extends GuiIngame {
     super.renderGameOverlay(partialTicks);
 
     GL11.glScaled(2.0, 2.0, 2.0);
-    mc.fontRendererObj.drawStringWithShadow("§7meow", 1, 1, 1);
+    //mc.fontRendererObj.drawStringWithShadow("§7meow", 1, 1, 1);
     GL11.glScaled(0.5, 0.5, 0.5);
 
     if (!mc.isSingleplayer() && !mc.gameSettings.showDebugInfo) {
@@ -33,6 +33,8 @@ public class GuiInGameHook extends GuiIngame {
       {
         Holder.setTPS(Holder.getTPS() - 0.01);
       }
+
+      mc.fontRendererObj.drawStringWithShadow("§7meow", 1, 1, 1);
 
       mc.fontRendererObj.drawStringWithShadow(ChatHelper.fix(
           String.format("&fCPU Usage: %.2f",
@@ -72,7 +74,7 @@ public class GuiInGameHook extends GuiIngame {
             ? "&6%.2f" : "&c%.2f"))), Holder.getTPS());
 
         mc.fontRendererObj
-            .drawStringWithShadow(ChatHelper.fix(String.format("&fTPS: &d%s", tps)), 5, 70, 0);
+            .drawStringWithShadow(ChatHelper.fix(String.format("&fTPS: %s", tps)), 5, 70, 0);
       }
 
       if (Holder.getLastPacketMS() != -1) {
@@ -83,8 +85,8 @@ public class GuiInGameHook extends GuiIngame {
 
         mc.fontRendererObj
             .drawStringWithShadow(ChatHelper.fix(
-                lastPacketMS > 30500 ? "&fLast packet: &dBroken pipe"
-                    : String.format("&fLast packet: &d%s&7ms &fago", packetMs)), 5, 80, 0);
+                lastPacketMS > 30500 ? "&fLast packet: &6Broken pipe"
+                    : String.format("&fLast packet: %s&7ms &fago", packetMs)), 5, 80, 0);
 
       }
     }
