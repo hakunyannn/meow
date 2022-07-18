@@ -288,7 +288,12 @@ public class PacketBuffer extends ByteBuf
         }
         else
         {
-            String s = new String(this.readBytes(i).array(), Charsets.UTF_8);
+            //String s = new String(this.readBytes(i).array(), Charsets.UTF_8);
+            // PandaSpigot start - Switch from readBytes().array() to readBytes(byte[]) as we could be dealing with a DirectByteBuf
+            byte[] b = new byte[i];
+            this.readBytes(b);
+            String s = new String(b, Charsets.UTF_8);
+            // PandaSpigot end
 
             if (s.length() > maxLength)
             {

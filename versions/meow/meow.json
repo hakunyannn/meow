@@ -119,12 +119,12 @@
       }
     },
     {
-      "name": "io.netty:netty-all:4.0.36.Final",
+      "name": "io.netty:netty-all:4.0.56.Final",
       "downloads": {
         "artifact": {
-          "url": "https://repo1.maven.org/maven2/io/netty/netty-all/4.0.36.Final/netty-all-4.0.36.Final.jar",
+          "url": "https://repo1.maven.org/maven2/io/netty/netty-all/4.0.56.Final/netty-all-4.0.56.Final.jar",
           "sha1": "0294104aaf1781d6a56a07d561e792c5d0c95f45",
-          "size": 2195921
+          "size": 2291648
         }
       }
     },
