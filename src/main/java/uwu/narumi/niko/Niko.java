@@ -32,7 +32,7 @@ public enum Niko {
     commandManager = new CommandManager(
         new ExploitCommand(),
         new HelpCommand(),
-        new OnlineCommand(),y
+        new OnlineCommand()
     );
 
     exploitManager = new ExploitManager(
