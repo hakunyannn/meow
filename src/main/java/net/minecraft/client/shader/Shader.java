@@ -49,7 +49,7 @@ public class Shader
         GlStateManager.disableBlend();
         GlStateManager.disableDepth();
         GlStateManager.disableAlpha();
-        GlStateManager.disableFog();
+        //GlStateManager.disableFog();
         GlStateManager.disableLighting();
         GlStateManager.disableColorMaterial();
         GlStateManager.enableTexture2D();

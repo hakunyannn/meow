@@ -174,6 +174,7 @@ public abstract class WorldProvider
     /**
      * Return Vec3D with biome specific fog color
      */
+    /*
     public Vec3 getFogColor(float p_76562_1_, float p_76562_2_)
     {
         float f = MathHelper.cos(p_76562_1_ * (float)Math.PI * 2.0F) * 2.0F + 0.5F;
@@ -186,6 +187,7 @@ public abstract class WorldProvider
         f3 = f3 * (f * 0.91F + 0.09F);
         return new Vec3((double)f1, (double)f2, (double)f3);
     }
+    */
 
     /**
      * True if the player can respawn in this dimension (true = overworld, false = nether).

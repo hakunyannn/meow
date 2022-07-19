@@ -156,16 +156,18 @@ public class EntityRenderer implements IResourceManagerReloadListener
     private float[] rainYCoords = new float[1024];
 
     /** Fog color buffer */
+    /*
     private FloatBuffer fogColorBuffer = GLAllocation.createDirectFloatBuffer(16);
     private float fogColorRed;
     private float fogColorGreen;
     private float fogColorBlue;
+    */
 
     /** Fog color 2 */
-    private float fogColor2;
+    //private float fogColor2;
 
     /** Fog color 1 */
-    private float fogColor1;
+    //private float fogColor1;
     private int debugViewDirection = 0;
     private boolean debugView = false;
     private double cameraZoom = 1.0D;
@@ -333,7 +335,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
 
         this.updateFovModifierHand();
         this.updateTorchFlicker();
-        this.fogColor2 = this.fogColor1;
+        //this.fogColor2 = this.fogColor1;
         this.thirdPersonDistanceTemp = this.thirdPersonDistance;
 
         if (this.mc.gameSettings.smoothCamera)
@@ -362,7 +364,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
         float f3 = this.mc.theWorld.getLightBrightness(new BlockPos(this.mc.getRenderViewEntity()));
         float f4 = (float)this.mc.gameSettings.renderDistanceChunks / 32.0F;
         float f2 = f3 * (1.0F - f4) + f4;
-        this.fogColor1 += (f2 - this.fogColor1) * 0.1F;
+        //this.fogColor1 += (f2 - this.fogColor1) * 0.1F;
         ++this.rendererUpdateCount;
         this.itemRenderer.updateEquippedItem();
         this.addRainParticles();
@@ -1322,7 +1324,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
         GlStateManager.enableCull();
         this.mc.mcProfiler.endStartSection("clear");
         GlStateManager.viewport(0, 0, this.mc.displayWidth, this.mc.displayHeight);
-        this.updateFogColor(partialTicks);
+        //this.updateFogColor(partialTicks);
         GlStateManager.clear(16640);
         this.mc.mcProfiler.endStartSection("camera");
         this.setupCameraTransform(partialTicks, pass);
@@ -1339,7 +1341,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
 
         if (this.mc.gameSettings.renderDistanceChunks >= 4)
         {
-            this.setupFog(-1, partialTicks);
+            //this.setupFog(-1, partialTicks);
             this.mc.mcProfiler.endStartSection("sky");
             GlStateManager.matrixMode(5889);
             GlStateManager.loadIdentity();
@@ -1352,7 +1354,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
             GlStateManager.matrixMode(5888);
         }
 
-        this.setupFog(0, partialTicks);
+        //this.setupFog(0, partialTicks);
         GlStateManager.shadeModel(7425);
 
         /*
@@ -1363,7 +1365,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
         */
 
         this.mc.mcProfiler.endStartSection("prepareterrain");
-        this.setupFog(0, partialTicks);
+        //this.setupFog(0, partialTicks);
         this.mc.getTextureManager().bindTexture(TextureMap.locationBlocksTexture);
         RenderHelper.disableStandardItemLighting();
         this.mc.mcProfiler.endStartSection("terrain_setup");
@@ -1438,7 +1440,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
             this.mc.mcProfiler.endStartSection("litParticles");
             effectrenderer.renderLitParticles(entity, partialTicks);
             RenderHelper.disableStandardItemLighting();
-            this.setupFog(0, partialTicks);
+            //this.setupFog(0, partialTicks);
             this.mc.mcProfiler.endStartSection("particles");
             effectrenderer.renderParticles(entity, partialTicks);
             this.disableLightmap();
@@ -1454,7 +1456,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
         GlStateManager.enableCull();
         GlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);
         GlStateManager.alphaFunc(516, 0.1F);
-        this.setupFog(0, partialTicks);
+        //this.setupFog(0, partialTicks);
         GlStateManager.enableBlend();
         GlStateManager.depthMask(false);
         this.mc.getTextureManager().bindTexture(TextureMap.locationBlocksTexture);
@@ -1465,7 +1467,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
         GlStateManager.depthMask(true);
         GlStateManager.enableCull();
         GlStateManager.disableBlend();
-        GlStateManager.disableFog();
+        //GlStateManager.disableFog();
 
         /*
         if (entity.posY + (double)entity.getEyeHeight() >= 128.0D)
@@ -1760,6 +1762,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
     /**
      * calculates fog and calls glClearColor
      */
+    /*
     private void updateFogColor(float partialTicks)
     {
         World world = this.mc.theWorld;
@@ -1826,7 +1829,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
 
         Block block = ActiveRenderInfo.getBlockAtEntityViewpoint(this.mc.theWorld, entity, partialTicks);
 
-        /*
+        /\fog\*
         if (this.cloudFog)
         {
             Vec3 vec33 = world.getCloudColour(partialTicks);
@@ -1834,7 +1837,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
             this.fogColorGreen = (float)vec33.yCoord;
             this.fogColorBlue = (float)vec33.zCoord;
         }
-        else*/ if (block.getMaterial() == Material.water)
+        else*\fog\/ if (block.getMaterial() == Material.water)
         {
             float f12 = (float)EnchantmentHelper.getRespiration(entity) * 0.2F;
 
@@ -1927,6 +1930,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
 
         GlStateManager.clearColor(this.fogColorRed, this.fogColorGreen, this.fogColorBlue, 0.0F);
     }
+    */
 
     /**
      * Sets up the fog to be rendered. If the arg passed in is -1 the fog starts at 0 and goes to 80% of far plane
@@ -1934,6 +1938,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
      *  
      * @param startCoords If is -1 the fog start at 0.0
      */
+    /*
     private void setupFog(int startCoords, float partialTicks)
     {
         Entity entity = this.mc.getRenderViewEntity();
@@ -1977,13 +1982,13 @@ public class EntityRenderer implements IResourceManagerReloadListener
                 GL11.glFogi(34138, 34139);
             }
         }
-        /*
+        /\fog\*
         else if (this.cloudFog)
         {
             GlStateManager.setFog(2048);
             GlStateManager.setFogDensity(0.1F);
         }
-        */
+        *\fog\/
         else if (block.getMaterial() == Material.water)
         {
             GlStateManager.setFog(2048);
@@ -2034,10 +2039,12 @@ public class EntityRenderer implements IResourceManagerReloadListener
         GlStateManager.enableFog();
         GlStateManager.colorMaterial(1028, 4608);
     }
+    */
 
     /**
      * Update and return fogColorBuffer with the RGBA values passed as arguments
      */
+    /*
     private FloatBuffer setFogColorBuffer(float red, float green, float blue, float alpha)
     {
         this.fogColorBuffer.clear();
@@ -2045,6 +2052,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
         this.fogColorBuffer.flip();
         return this.fogColorBuffer;
     }
+    */
 
     public MapItemRenderer getMapItemRenderer()
     {

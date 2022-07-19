@@ -884,7 +884,7 @@ public class Minecraft implements IThreadListener
         GlStateManager.loadIdentity();
         GlStateManager.translate(0.0F, 0.0F, -2000.0F);
         GlStateManager.disableLighting();
-        GlStateManager.disableFog();
+        //GlStateManager.disableFog();
         GlStateManager.disableDepth();
         GlStateManager.enableTexture2D();
         InputStream inputstream = null;
@@ -917,7 +917,7 @@ public class Minecraft implements IThreadListener
         int k = 256;
         this.draw((scaledresolution.getScaledWidth() - j) / 2, (scaledresolution.getScaledHeight() - k) / 2, 0, 0, j, k, 255, 255, 255, 255);
         GlStateManager.disableLighting();
-        GlStateManager.disableFog();
+        //GlStateManager.disableFog();
         framebuffer.unbindFramebuffer();
         framebuffer.framebufferRender(scaledresolution.getScaledWidth() * i, scaledresolution.getScaledHeight() * i);
         GlStateManager.enableAlpha();
@@ -2223,10 +2223,12 @@ public class Minecraft implements IThreadListener
 
             this.mcProfiler.endStartSection("animateTick");
 
+            /*
             if (!this.isGamePaused && this.theWorld != null)
             {
                 this.theWorld.doVoidFogParticles(MathHelper.floor_double(this.thePlayer.posX), MathHelper.floor_double(this.thePlayer.posY), MathHelper.floor_double(this.thePlayer.posZ));
             }
+            */
 
             this.mcProfiler.endStartSection("particles");
 

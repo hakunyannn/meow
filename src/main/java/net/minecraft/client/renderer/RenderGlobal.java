@@ -597,7 +597,7 @@ public class RenderGlobal implements IWorldAccess, IResourceManagerReloadListene
             if (this.isRenderEntityOutlines())
             {
                 GlStateManager.depthFunc(519);
-                GlStateManager.disableFog();
+                //GlStateManager.disableFog();
                 this.entityOutlineFramebuffer.framebufferClear();
                 this.entityOutlineFramebuffer.bindFramebuffer(false);
                 this.theWorld.theProfiler.endStartSection("entityOutlines");
@@ -623,7 +623,7 @@ public class RenderGlobal implements IWorldAccess, IResourceManagerReloadListene
                 GlStateManager.enableLighting();
                 GlStateManager.depthMask(true);
                 this.mc.getFramebuffer().bindFramebuffer(false);
-                GlStateManager.enableFog();
+                //GlStateManager.enableFog();
                 GlStateManager.enableBlend();
                 GlStateManager.enableColorMaterial();
                 GlStateManager.depthFunc(515);
@@ -1147,7 +1147,7 @@ public class RenderGlobal implements IWorldAccess, IResourceManagerReloadListene
 
     private void renderSkyEnd()
     {
-        GlStateManager.disableFog();
+        //GlStateManager.disableFog();
         GlStateManager.disableAlpha();
         GlStateManager.enableBlend();
         GlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);
@@ -1228,7 +1228,7 @@ public class RenderGlobal implements IWorldAccess, IResourceManagerReloadListene
             Tessellator tessellator = Tessellator.getInstance();
             WorldRenderer worldrenderer = tessellator.getWorldRenderer();
             GlStateManager.depthMask(false);
-            GlStateManager.enableFog();
+            //GlStateManager.enableFog();
             GlStateManager.color(f, f1, f2);
 
             if (this.vboEnabled)
@@ -1245,7 +1245,7 @@ public class RenderGlobal implements IWorldAccess, IResourceManagerReloadListene
                 GlStateManager.callList(this.glSkyList);
             }
 
-            GlStateManager.disableFog();
+            //GlStateManager.disableFog();
             GlStateManager.disableAlpha();
             GlStateManager.enableBlend();
             GlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);
@@ -1346,7 +1346,7 @@ public class RenderGlobal implements IWorldAccess, IResourceManagerReloadListene
             GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
             GlStateManager.disableBlend();
             GlStateManager.enableAlpha();
-            GlStateManager.enableFog();
+            //GlStateManager.enableFog();
             GlStateManager.popMatrix();
             GlStateManager.disableTexture2D();
             GlStateManager.color(0.0F, 0.0F, 0.0F);

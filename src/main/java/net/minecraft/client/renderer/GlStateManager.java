@@ -11,7 +11,7 @@ public class GlStateManager
     private static GlStateManager.ColorMaterialState colorMaterialState = new GlStateManager.ColorMaterialState();
     private static GlStateManager.BlendState blendState = new GlStateManager.BlendState();
     private static GlStateManager.DepthState depthState = new GlStateManager.DepthState();
-    private static GlStateManager.FogState fogState = new GlStateManager.FogState();
+    //private static GlStateManager.FogState fogState = new GlStateManager.FogState();
     private static GlStateManager.CullState cullState = new GlStateManager.CullState();
     private static GlStateManager.PolygonOffsetState polygonOffsetState = new GlStateManager.PolygonOffsetState();
     private static GlStateManager.ColorLogicState colorLogicState = new GlStateManager.ColorLogicState();
@@ -156,6 +156,7 @@ public class GlStateManager
         }
     }
 
+    /*
     public static void enableFog()
     {
         fogState.fog.setEnabled();
@@ -201,6 +202,7 @@ public class GlStateManager
             GL11.glFogf(GL11.GL_FOG_END, param);
         }
     }
+    */
 
     public static void enableCull()
     {
@@ -697,6 +699,7 @@ public class GlStateManager
         }
     }
 
+    /*
     static class FogState
     {
         public GlStateManager.BooleanState fog;
@@ -714,6 +717,7 @@ public class GlStateManager
             this.end = 1.0F;
         }
     }
+    */
 
     static class PolygonOffsetState
     {

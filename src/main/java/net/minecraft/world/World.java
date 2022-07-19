@@ -1558,11 +1558,13 @@ public abstract class World implements IBlockAccess
     /**
      * Returns vector(ish) with R/G/B for fog
      */
+    /*
     public Vec3 getFogColor(float partialTicks)
     {
         float f = this.getCelestialAngle(partialTicks);
         return this.provider.getFogColor(f, partialTicks);
     }
+    */
 
     public BlockPos getPrecipitationHeight(BlockPos pos)
     {
