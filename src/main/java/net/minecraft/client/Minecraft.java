@@ -2223,10 +2223,12 @@ public class Minecraft implements IThreadListener
 
             this.mcProfiler.endStartSection("animateTick");
 
+            /*
             if (!this.isGamePaused && this.theWorld != null)
             {
                 this.theWorld.doVoidFogParticles(MathHelper.floor_double(this.thePlayer.posX), MathHelper.floor_double(this.thePlayer.posY), MathHelper.floor_double(this.thePlayer.posZ));
             }
+            */
 
             this.mcProfiler.endStartSection("particles");
 
