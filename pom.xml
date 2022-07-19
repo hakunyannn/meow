@@ -9,6 +9,7 @@
     <version>7.2.7-SNAPSHOT</version>
 
     <properties>
+        <skipTests>true</skipTests> <!-- there is 0 test to perform so -->
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
