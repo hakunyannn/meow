@@ -93,7 +93,7 @@ public class GuiSimpleScrolledSelectionListProxy extends GuiSlot
             int j = i + 6;
             this.bindAmountScrolled();
             GlStateManager.disableLighting();
-            //GlStateManager.disableFog();
+            GlStateManager.disableFog();
             Tessellator tessellator = Tessellator.getInstance();
             WorldRenderer worldrenderer = tessellator.getWorldRenderer();
             int k = this.left + this.width / 2 - this.getListWidth() / 2 + 2;

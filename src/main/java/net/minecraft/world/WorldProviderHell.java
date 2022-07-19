@@ -23,12 +23,10 @@ public class WorldProviderHell extends WorldProvider
     /**
      * Return Vec3D with biome specific fog color
      */
-    /*
     public Vec3 getFogColor(float p_76562_1_, float p_76562_2_)
     {
         return new Vec3(0.20000000298023224D, 0.029999999329447746D, 0.029999999329447746D);
     }
-    */
 
     /**
      * Creates the light to brightness table

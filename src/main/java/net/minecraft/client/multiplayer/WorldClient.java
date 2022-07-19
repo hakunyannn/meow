@@ -301,7 +301,6 @@ public class WorldClient extends World
         return this.mc.gameSettings.renderDistanceChunks;
     }
 
-    /*
     public void doVoidFogParticles(int posX, int posY, int posZ)
     {
         int i = 16;
@@ -325,7 +324,6 @@ public class WorldClient extends World
             }
         }
     }
-    */
 
     /**
      * also releases skins.

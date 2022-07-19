@@ -983,7 +983,7 @@ public class GuiCustomizeWorldScreen extends GuiScreen implements GuiSlider.Form
             float f = 85.0F;
             float f1 = 180.0F;
             GlStateManager.disableLighting();
-            //GlStateManager.disableFog();
+            GlStateManager.disableFog();
             Tessellator tessellator = Tessellator.getInstance();
             WorldRenderer worldrenderer = tessellator.getWorldRenderer();
             this.mc.getTextureManager().bindTexture(optionsBackground);

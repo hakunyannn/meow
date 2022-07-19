@@ -47,7 +47,6 @@ public class WorldProviderEnd extends WorldProvider
     /**
      * Return Vec3D with biome specific fog color
      */
-    /*
     public Vec3 getFogColor(float p_76562_1_, float p_76562_2_)
     {
         int i = 10518688;
@@ -61,7 +60,6 @@ public class WorldProviderEnd extends WorldProvider
         f3 = f3 * (f * 0.0F + 0.15F);
         return new Vec3((double)f1, (double)f2, (double)f3);
     }
-    */
 
     public boolean isSkyColored()
     {

@@ -23,7 +23,7 @@ public class TileEntityBeaconRenderer extends TileEntitySpecialRenderer<TileEnti
         {
             Tessellator tessellator = Tessellator.getInstance();
             WorldRenderer worldrenderer = tessellator.getWorldRenderer();
-            //GlStateManager.disableFog();
+            GlStateManager.disableFog();
             List<TileEntityBeacon.BeamSegment> list = te.getBeamSegments();
             int i = 0;
 
@@ -115,7 +115,7 @@ public class TileEntityBeaconRenderer extends TileEntitySpecialRenderer<TileEnti
                 i = k;
             }
 
-            //GlStateManager.enableFog();
+            GlStateManager.enableFog();
         }
     }
 

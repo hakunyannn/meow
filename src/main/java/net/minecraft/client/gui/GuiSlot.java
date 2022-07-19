@@ -230,7 +230,7 @@ public abstract class GuiSlot
             int j = i + 6;
             this.bindAmountScrolled();
             GlStateManager.disableLighting();
-            //GlStateManager.disableFog();
+            GlStateManager.disableFog();
             Tessellator tessellator = Tessellator.getInstance();
             WorldRenderer worldrenderer = tessellator.getWorldRenderer();
             this.mc.getTextureManager().bindTexture(Gui.optionsBackground);
