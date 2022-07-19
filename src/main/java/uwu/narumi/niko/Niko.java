@@ -5,7 +5,6 @@ import net.arikia.dev.drpc.DiscordRPC;
 import org.lwjgl.opengl.Display;
 import uwu.narumi.niko.command.CommandManager;
 import uwu.narumi.niko.command.impl.ExploitCommand;
-import uwu.narumi.niko.command.impl.FakeGamemodeCommand;
 import uwu.narumi.niko.command.impl.HelpCommand;
 import uwu.narumi.niko.command.impl.OnlineCommand;
 import uwu.narumi.niko.exploit.ExploitManager;
@@ -18,7 +17,6 @@ import uwu.narumi.niko.exploit.impl.other.ChunkLoadExploit;
 import uwu.narumi.niko.exploit.impl.other.FaweExploit;
 import uwu.narumi.niko.exploit.impl.other.SpamExploit;
 import uwu.narumi.niko.helper.NetHelper;
-//import uwu.narumi.niko.helper.OpenGlHelper;
 import uwu.narumi.niko.rpc.DiscordRichPresenceManager;
 
 public enum Niko {
