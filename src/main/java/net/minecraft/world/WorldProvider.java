@@ -203,10 +203,12 @@ public abstract class WorldProvider
     /**
      * the y level at which clouds are rendered.
      */
+    /*
     public float getCloudHeight()
     {
         return 128.0F;
     }
+    */
 
     public boolean isSkyColored()
     {

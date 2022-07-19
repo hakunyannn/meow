@@ -120,7 +120,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
     private float bossColorModifierPrev;
 
     /** Cloud fog mode */
-    private boolean cloudFog;
+    //private boolean cloudFog;
     private boolean renderHand = true;
     private boolean drawBlockOutline = true;
 
@@ -739,7 +739,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
         d0 = entity.prevPosX + (entity.posX - entity.prevPosX) * (double)partialTicks;
         d1 = entity.prevPosY + (entity.posY - entity.prevPosY) * (double)partialTicks + (double)f;
         d2 = entity.prevPosZ + (entity.posZ - entity.prevPosZ) * (double)partialTicks;
-        this.cloudFog = this.mc.renderGlobal.hasCloudFog(d0, d1, d2, partialTicks);
+        //this.cloudFog = this.mc.renderGlobal.hasCloudFog(d0, d1, d2, partialTicks);
     }
 
     /**
@@ -1355,10 +1355,12 @@ public class EntityRenderer implements IResourceManagerReloadListener
         this.setupFog(0, partialTicks);
         GlStateManager.shadeModel(7425);
 
+        /*
         if (entity.posY + (double)entity.getEyeHeight() < 128.0D)
         {
             this.renderCloudsCheck(renderglobal, partialTicks, pass);
         }
+        */
 
         this.mc.mcProfiler.endStartSection("prepareterrain");
         this.setupFog(0, partialTicks);
@@ -1465,11 +1467,13 @@ public class EntityRenderer implements IResourceManagerReloadListener
         GlStateManager.disableBlend();
         GlStateManager.disableFog();
 
+        /*
         if (entity.posY + (double)entity.getEyeHeight() >= 128.0D)
         {
             this.mc.mcProfiler.endStartSection("aboveClouds");
             this.renderCloudsCheck(renderglobal, partialTicks, pass);
         }
+        */
 
         this.mc.mcProfiler.endStartSection("hand");
 
@@ -1481,6 +1485,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
         }
     }
 
+    /*
     private void renderCloudsCheck(RenderGlobal renderGlobalIn, float partialTicks, int pass)
     {
         if (this.mc.gameSettings.shouldRenderClouds() != 0)
@@ -1501,6 +1506,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
             GlStateManager.matrixMode(5888);
         }
     }
+    */
 
     private void addRainParticles()
     {
@@ -1820,6 +1826,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
 
         Block block = ActiveRenderInfo.getBlockAtEntityViewpoint(this.mc.theWorld, entity, partialTicks);
 
+        /*
         if (this.cloudFog)
         {
             Vec3 vec33 = world.getCloudColour(partialTicks);
@@ -1827,7 +1834,7 @@ public class EntityRenderer implements IResourceManagerReloadListener
             this.fogColorGreen = (float)vec33.yCoord;
             this.fogColorBlue = (float)vec33.zCoord;
         }
-        else if (block.getMaterial() == Material.water)
+        else*/ if (block.getMaterial() == Material.water)
         {
             float f12 = (float)EnchantmentHelper.getRespiration(entity) * 0.2F;
 
@@ -1970,11 +1977,13 @@ public class EntityRenderer implements IResourceManagerReloadListener
                 GL11.glFogi(34138, 34139);
             }
         }
+        /*
         else if (this.cloudFog)
         {
             GlStateManager.setFog(2048);
             GlStateManager.setFogDensity(0.1F);
         }
+        */
         else if (block.getMaterial() == Material.water)
         {
             GlStateManager.setFog(2048);

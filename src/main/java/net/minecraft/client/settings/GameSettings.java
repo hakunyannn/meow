@@ -56,7 +56,7 @@ public class GameSettings
     private static final String[] GUISCALES = new String[] {"options.guiScale.auto", "options.guiScale.small", "options.guiScale.normal", "options.guiScale.large"};
     private static final String[] PARTICLES = new String[] {"options.particles.all", "options.particles.decreased", "options.particles.minimal"};
     private static final String[] AMBIENT_OCCLUSIONS = new String[] {"options.ao.off", "options.ao.min", "options.ao.max"};
-    private static final String[] CLOUDS_TYPES = new String[] {"options.off", "options.graphics.fast", "options.graphics.fancy"};
+    //private static final String[] CLOUDS_TYPES = new String[] {"options.off", "options.graphics.fast", "options.graphics.fancy"};
     public float mouseSensitivity = 0.5F;
     public boolean invertMouse;
     public int renderDistanceChunks = -1;
@@ -66,7 +66,7 @@ public class GameSettings
     public int limitFramerate = 120;
 
     /** Clouds flag */
-    public int clouds = 2;
+    //public int clouds = 2;
     public boolean fancyGraphics = true;
 
     /** Smooth Lighting */
@@ -339,10 +339,12 @@ public class GameSettings
             this.viewBobbing = !this.viewBobbing;
         }
 
+        /*
         if (settingsOption == GameSettings.Options.RENDER_CLOUDS)
         {
             this.clouds = (this.clouds + value) % 3;
         }
+        */
 
         if (settingsOption == GameSettings.Options.FORCE_UNICODE_FONT)
         {
@@ -536,7 +538,7 @@ public class GameSettings
         {
             float f1 = this.getOptionFloatValue(settingOption);
             float f = settingOption.normalizeValue(f1);
-            return settingOption == GameSettings.Options.SENSITIVITY ? (f == 0.0F ? s + I18n.format("options.sensitivity.min", new Object[0]) : (f == 1.0F ? s + I18n.format("options.sensitivity.max", new Object[0]) : s + (int)(f * 200.0F) + "%")) : (settingOption == GameSettings.Options.FOV ? (f1 == 70.0F ? s + I18n.format("options.fov.min", new Object[0]) : (f1 == 110.0F ? s + I18n.format("options.fov.max", new Object[0]) : s + (int)f1)) : (settingOption == GameSettings.Options.FRAMERATE_LIMIT ? (f1 == settingOption.valueMax ? s + I18n.format("options.framerateLimit.max", new Object[0]) : s + (int)f1 + " fps") : (settingOption == GameSettings.Options.RENDER_CLOUDS ? (f1 == settingOption.valueMin ? s + I18n.format("options.cloudHeight.min", new Object[0]) : s + ((int)f1 + 128)) : (settingOption == GameSettings.Options.GAMMA ? (f == 0.0F ? s + I18n.format("options.gamma.min", new Object[0]) : (f == 1.0F ? s + I18n.format("options.gamma.max", new Object[0]) : s + "+" + (int)(f * 100.0F) + "%")) : (settingOption == GameSettings.Options.SATURATION ? s + (int)(f * 400.0F) + "%" : (settingOption == GameSettings.Options.CHAT_OPACITY ? s + (int)(f * 90.0F + 10.0F) + "%" : (settingOption == GameSettings.Options.CHAT_HEIGHT_UNFOCUSED ? s + GuiNewChat.calculateChatboxHeight(f) + "px" : (settingOption == GameSettings.Options.CHAT_HEIGHT_FOCUSED ? s + GuiNewChat.calculateChatboxHeight(f) + "px" : (settingOption == GameSettings.Options.CHAT_WIDTH ? s + GuiNewChat.calculateChatboxWidth(f) + "px" : (settingOption == GameSettings.Options.RENDER_DISTANCE ? s + (int)f1 + " chunks" : (settingOption == GameSettings.Options.MIPMAP_LEVELS ? (f1 == 0.0F ? s + I18n.format("options.off", new Object[0]) : s + (int)f1) : s + (int)(f * 100.0F) + "%")))))))))));
+            return settingOption == GameSettings.Options.SENSITIVITY ? (f == 0.0F ? s + I18n.format("options.sensitivity.min", new Object[0]) : (f == 1.0F ? s + I18n.format("options.sensitivity.max", new Object[0]) : s + (int)(f * 200.0F) + "%")) : (settingOption == GameSettings.Options.FOV ? (f1 == 70.0F ? s + I18n.format("options.fov.min", new Object[0]) : (f1 == 110.0F ? s + I18n.format("options.fov.max", new Object[0]) : s + (int)f1)) : (settingOption == GameSettings.Options.FRAMERATE_LIMIT ? (f1 == settingOption.valueMax ? s + I18n.format("options.framerateLimit.max", new Object[0]) : s + (int)f1 + " fps") : /*(settingOption == GameSettings.Options.RENDER_CLOUDS ? (f1 == settingOption.valueMin ? s + I18n.format("options.cloudHeight.min", new Object[0]) : s + ((int)f1 + 128)) :*/ (settingOption == GameSettings.Options.GAMMA ? (f == 0.0F ? s + I18n.format("options.gamma.min", new Object[0]) : (f == 1.0F ? s + I18n.format("options.gamma.max", new Object[0]) : s + "+" + (int)(f * 100.0F) + "%")) : (settingOption == GameSettings.Options.SATURATION ? s + (int)(f * 400.0F) + "%" : (settingOption == GameSettings.Options.CHAT_OPACITY ? s + (int)(f * 90.0F + 10.0F) + "%" : (settingOption == GameSettings.Options.CHAT_HEIGHT_UNFOCUSED ? s + GuiNewChat.calculateChatboxHeight(f) + "px" : (settingOption == GameSettings.Options.CHAT_HEIGHT_FOCUSED ? s + GuiNewChat.calculateChatboxHeight(f) + "px" : (settingOption == GameSettings.Options.CHAT_WIDTH ? s + GuiNewChat.calculateChatboxWidth(f) + "px" : (settingOption == GameSettings.Options.RENDER_DISTANCE ? s + (int)f1 + " chunks" : (settingOption == GameSettings.Options.MIPMAP_LEVELS ? (f1 == 0.0F ? s + I18n.format("options.off", new Object[0]) : s + (int)f1) : s + (int)(f * 100.0F) + "%")))))))))));
         }
         else if (settingOption.getEnumBoolean())
         {
@@ -559,10 +561,12 @@ public class GameSettings
         {
             return s + getTranslation(AMBIENT_OCCLUSIONS, this.ambientOcclusion);
         }
+        /*
         else if (settingOption == GameSettings.Options.RENDER_CLOUDS)
         {
             return s + getTranslation(CLOUDS_TYPES, this.clouds);
         }
+        */
         else if (settingOption == GameSettings.Options.GRAPHICS)
         {
             if (this.fancyGraphics)
@@ -689,6 +693,7 @@ public class GameSettings
                         }
                     }
 
+                    /*
                     if (astring[0].equals("renderClouds"))
                     {
                         if (astring[1].equals("true"))
@@ -704,6 +709,7 @@ public class GameSettings
                             this.clouds = 1;
                         }
                     }
+                    */
 
                     if (astring[0].equals("resourcePacks"))
                     {
@@ -943,6 +949,7 @@ public class GameSettings
             printwriter.println("fancyGraphics:" + this.fancyGraphics);
             printwriter.println("ao:" + this.ambientOcclusion);
 
+            /*
             switch (this.clouds)
             {
                 case 0:
@@ -956,6 +963,7 @@ public class GameSettings
                 case 2:
                     printwriter.println("renderClouds:true");
             }
+            */
 
             printwriter.println("resourcePacks:" + gson.toJson((Object)this.resourcePacks));
             printwriter.println("incompatibleResourcePacks:" + gson.toJson((Object)this.incompatibleResourcePacks));
@@ -1079,10 +1087,12 @@ public class GameSettings
     /**
      * Return true if the clouds should be rendered
      */
+    /*
     public int shouldRenderClouds()
     {
         return this.renderDistanceChunks >= 4 ? this.clouds : 0;
     }
+    */
 
     /**
      * Return true if the client connect to a server using the native transport system
@@ -1104,7 +1114,7 @@ public class GameSettings
         ANAGLYPH("options.anaglyph", false, true),
         FRAMERATE_LIMIT("options.framerateLimit", true, false, 10.0F, 260.0F, 10.0F),
         FBO_ENABLE("options.fboEnable", false, true),
-        RENDER_CLOUDS("options.renderClouds", false, false),
+        //RENDER_CLOUDS("options.renderClouds", false, false),
         GRAPHICS("options.graphics", false, false),
         AMBIENT_OCCLUSION("options.ao", false, false),
         GUI_SCALE("options.guiScale", false, false),

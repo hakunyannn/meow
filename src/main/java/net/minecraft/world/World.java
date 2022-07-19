@@ -70,7 +70,7 @@ public abstract class World implements IBlockAccess
     public final List<EntityPlayer> playerEntities = Lists.<EntityPlayer>newArrayList();
     public final List<Entity> weatherEffects = Lists.<Entity>newArrayList();
     protected final IntHashMap<Entity> entitiesById = new IntHashMap<>(); // Added type inference
-    private long cloudColour = 16777215L;
+    //private long cloudColour = 16777215L;
 
     /** How much light is subtracted from full daylight */
     private int skylightSubtracted;
@@ -1517,6 +1517,7 @@ public abstract class World implements IBlockAccess
         return f * (float)Math.PI * 2.0F;
     }
 
+    /*
     public Vec3 getCloudColour(float partialTicks)
     {
         float f = this.getCelestialAngle(partialTicks);
@@ -1552,6 +1553,7 @@ public abstract class World implements IBlockAccess
 
         return new Vec3((double)f2, (double)f3, (double)f4);
     }
+    */
 
     /**
      * Returns vector(ish) with R/G/B for fog

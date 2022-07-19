@@ -85,10 +85,12 @@ public class WorldProviderEnd extends WorldProvider
     /**
      * the y level at which clouds are rendered.
      */
+    /*
     public float getCloudHeight()
     {
         return 8.0F;
     }
+    */
 
     /**
      * Will check if the x, z position specified is alright to be set as the map spawn point
