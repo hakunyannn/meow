@@ -13,7 +13,6 @@ import uwu.narumi.niko.exploit.impl.flood.AttackExploit;
 import uwu.narumi.niko.exploit.impl.nbt.BookExploit;
 import uwu.narumi.niko.exploit.impl.nbt.ExploitFixerExploit;
 import uwu.narumi.niko.exploit.impl.nbt.OnePacketExploit;
-import uwu.narumi.niko.exploit.impl.other.ChunkLoadExploit;
 import uwu.narumi.niko.exploit.impl.other.FaweExploit;
 import uwu.narumi.niko.exploit.impl.other.SpamExploit;
 import uwu.narumi.niko.helper.NetHelper;
@@ -43,12 +42,10 @@ public enum Niko {
         new BookExploit(),
         new SpamExploit(),
         new FaweExploit(),
-        new ChunkLoadExploit(),
         new ExploitFixerExploit(),
         new OnePacketExploit()
     );
 
-    // NetHelper.createSession("FuckYooniks", null);
     Runtime.getRuntime().addShutdownHook(new Thread(this::shutDown));
   }
 
